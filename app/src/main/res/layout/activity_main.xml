@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.wwc2.main.MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/start_service"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:text="启动服务" />
+
+            <Button
+                android:id="@+id/stop_service"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/start_service"
+                android:text="停止服务" />
+
+            <Button
+                android:id="@+id/close"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/stop_service"
+                android:text="关闭avtivity" />
+
+            <Button
+                android:id="@+id/run_radio_apk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/close"
+                android:text="启动收音APK" />
+
+            <Button
+                android:id="@+id/return_third_party"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/run_radio_apk"
+                android:text="打开后台" />
+
+            <Button
+                android:id="@+id/return_last_source"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/return_third_party"
+                android:text="返回上一源" />
+
+            <Button
+                android:id="@+id/jni_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/return_last_source"
+                android:text="给MCU发送INIT OK" />
+
+            <Button
+                android:id="@+id/run_bluetooth_service"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/jni_test"
+                android:text="下载蓝牙手机电话本" />
+
+            <Button
+                android:id="@+id/enter_screenoff"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/run_bluetooth_service"
+                android:text="关屏" />
+
+            <Button
+                android:id="@+id/simulate_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/enter_screenoff"
+                android:text="模拟HOME按键" />
+
+            <Button
+                android:id="@+id/volume_increase"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/simulate_home"
+                android:text="音量加1" />
+
+            <Button
+                android:id="@+id/volume_decrease"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/volume_increase"
+                android:text="音量减1" />
+
+            <Button
+                android:id="@+id/volume_mute_unmute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/volume_decrease"
+                android:text="静音/解静" />
+
+            <Button
+                android:id="@+id/volume_show"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/volume_mute_unmute"
+                android:text="显示音量条" />
+
+            <Button
+                android:id="@+id/get_all_apps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/volume_show"
+                android:text="获取车机所有APP信息" />
+
+            <Button
+                android:id="@+id/enter_standby"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/get_all_apps"
+                android:text="待机" />
+
+            <Button
+                android:id="@+id/btn_open_eq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/get_all_apps"
+                android:text="打开音效" />
+
+            <Button
+                android:id="@+id/get_version"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/btn_open_eq"
+                android:text="获取所有版本信息" />
+
+            <Button
+                android:id="@+id/reboot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/get_version"
+                android:text="重启" />
+
+            <Button
+                android:id="@+id/os_update"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/reboot"
+                android:text="进入系统recovery升级" />
+
+            <Button
+                android:id="@+id/kill_process"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/os_update"
+                android:text="杀死浏览器" />
+
+            <Button
+                android:id="@+id/enter_backlight_ui"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/kill_process"
+                android:text="进入背光设置UI" />
+
+            <Button
+                android:id="@+id/get_state_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/enter_backlight_ui"
+                android:text="获取所有状态信息" />
+
+            <Button
+                android:id="@+id/open_debug"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/get_state_info"
+                android:text="打开APP调试" />
+
+            <Button
+                android:id="@+id/close_debug"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/open_debug"
+                android:text="关闭APP调试" />
+
+            <Button
+                android:id="@+id/kill_process_sleep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/open_debug"
+                android:text="模拟系统休眠杀进程" />
+
+            <Button
+                android:id="@+id/status_bar_visible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/kill_process_sleep"
+                android:text="显示状态栏" />
+
+            <Button
+                android:id="@+id/status_bar_invisible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/status_bar_visible"
+                android:text="隐藏状态栏" />
+
+            <Button
+                android:id="@+id/notify_dvr_recording"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/status_bar_invisible"
+                android:text="发送DVR在录像状态" />
+
+            <Button
+                android:id="@+id/notify_dvr_disrecord"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/notify_dvr_recording"
+                android:text="发送DVR不在录像状态" />
+
+            <Button
+                android:id="@+id/notify_dvr_disable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/notify_dvr_disrecord"
+                android:text="发送DVR被禁用" />
+
+            <Button
+                android:id="@+id/test_notify"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/notify_dvr_disable"
+                android:text="发送测试通知" />
+
+            <Button
+                android:id="@+id/online_upgrade_demo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/test_notify"
+                android:text="在线升级DEMO调试" />
+
+            <Button
+                android:id="@+id/call_system_bin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/online_upgrade_demo"
+                android:text="调用/system/bin/boot_logo_updater可执行文件" />
+
+            <Button
+                android:id="@+id/storage_notification_enable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/call_system_bin"
+                android:text="启用存储设备通知" />
+
+            <Button
+                android:id="@+id/storage_notification_disable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/storage_notification_enable"
+                android:text="禁用存储设备通知" />
+
+            <Button
+                android:id="@+id/LOCATION_MODE_OFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/storage_notification_disable"
+                android:text="GPS LOCATION_MODE_OFF" />
+
+            <Button
+                android:id="@+id/LOCATION_MODE_SENSORS_ONLY"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/LOCATION_MODE_OFF"
+                android:text="GPS LOCATION_MODE_SENSORS_ONLY" />
+
+            <Button
+                android:id="@+id/LOCATION_MODE_BATTERY_SAVING"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/LOCATION_MODE_SENSORS_ONLY"
+                android:text="GPS LOCATION_MODE_BATTERY_SAVING" />
+
+            <Button
+                android:id="@+id/LOCATION_MODE_HIGH_ACCURACY"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/LOCATION_MODE_BATTERY_SAVING"
+                android:text="GPS LOCATION_MODE_HIGH_ACCURACY" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

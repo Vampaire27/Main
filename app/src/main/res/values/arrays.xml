@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="open_wifihot">
+        <item>打开热点</item>
+        <item>开启热点</item>
+    </string-array>
+    <string-array name="close_wifihot">
+        <item>关闭热点</item>
+        <item>关掉热点</item>
+    </string-array>
+    <string-array name="open_bt">
+        <item>打开蓝牙</item>
+        <item>开启蓝牙</item>
+    </string-array>
+    <string-array name="close_bt">
+        <item>关闭蓝牙</item>
+        <item>关掉蓝牙</item>
+    </string-array>
+    <string-array name="open_picture">
+        <item>打开相册</item>
+        <item>开启相册</item>
+        <item>打开图库</item>
+        <item>开启图库</item>
+    </string-array>
+    <string-array name="close_picture">
+        <item>关闭相册</item>
+        <item>关掉相册</item>
+        <item>关闭图库</item>
+        <item>关掉图库</item>
+    </string-array>
+    <string-array name="open_files">
+        <item>打开文件管理器</item>
+        <item>开启文件管理器</item>
+    </string-array>
+    <string-array name="close_files">
+        <item>关闭文件管理器</item>
+        <item>关掉文件管理器</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">main</string>
+    <string name="input_success">导入配置文件成功,请重启机器\n\n【注意】产生此提示框是因为是U盘中存在import_CustomConfig文件夹，如果不需要此提示，请点击“稍后重启”之后，移步 文件管理->USB/ 删除 import_CustomConfig文件夹。</string>
+    <string name="input_vsync_success">导入配置文件成功,请重启机器\n\n【注意】产生此提示框是因为是U盘中存在VsyncRes文件夹，如果不需要此提示，请点击“稍后重启”之后，移步 文件管理->USB/ 删除 VsyncRes 文件夹。</string>
+    <string name="ram_set_success">外部存储设备已挂载</string>
+    <string name="same_importkey">已存在相同配置，不需要导入</string>
+    <string name="input_success_partly">已完成导入,请重启机器,以下配置文件缺失</string>
+    <string name="update_os">正在准备复制升级文件.</string>
+    <string name="mcu_not_match">MCU版本和系统不匹配,等待MCU升级完成.</string>
+    <string name="voice_setting">语音未启动，请开启唤醒开关</string>
+    <string name="voice_toast">语音未激活，请连接网络</string>
+
+    <string name="sn_tips">\n\n【注意】出现这个提示，是因为U盘中存在KLD这个文件夹，删除U盘中的KLD文件夹即可。</string>
+    <string name="sn_input_success">导出成功！</string>
+    <string name="sn_input_fail">导出失败！该设备在这个时间已被导出过！->\n</string>
+</resources>

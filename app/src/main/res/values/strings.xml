@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">main</string>
+    <string name="input_success">Import config success, please restart the machine\n\n[Note] This prompt box is generated because there is an import_CustomConfig folder in the U disk. If you do not need this prompt, please click "Restart later" After that, move the file management -> USB / delete the import_CustomConfig folder.</string>
+    <string name="input_vsync_success">Import config success, please restart the machine\n\n[Note] This prompt box is generated because there is a VsyncRes folder in the U disk. If you do not need this prompt, please click "Restart later" After that, move the file management->USB/ delete the VsyncRes folder.</string>
+    <string name="ram_set_success">external storage device is mounted</string>
+    <string name="same_importkey">The same config exists, no need to import</string>
+    <string name="input_success_partly">The import has been completed, please restart the machine, the following config file is missing </string>
+    <string name="update_os"> preparing to copy the upgrade file.</string>
+    <string name="mcu_not_match">MCU version and system do not match, waiting for the MCU upgrade to complete.</string>
+    <string name="voice_setting">voice does not start, please turn on the wake-up switch</string>
+    <string name="voice_toast">voice is not activated, please connect to the network</string>
+
+    <string name="sn_tips">\n\nTips! Because of KLD exists. This tips screen will be display. Deleting KLD will make it disappear!</string>
+    <string name="sn_input_success">Output success!</string>
+    <string name="sn_input_fail">Output fail! This device has been outputed at this Time! ->\n</string>
+</resources>

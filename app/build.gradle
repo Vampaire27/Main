@@ -1,0 +1,165 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storeFile file('debug.keystore')
+            storePassword 'android'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+    }
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
+    defaultConfig {
+        applicationId "com.wwc2.main"
+        minSdkVersion 19
+        targetSdkVersion 23
+        versionCode 81114
+        versionName "8.11.14"
+        // Enabling multidex support. trying to fix
+        multiDexEnabled true
+        signingConfig signingConfigs.config
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters  'armeabi-v7a', 'arm64-v8a'
+        }
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.config
+        }
+        sourceSets {
+            main {
+                jni.srcDirs = []//禁止gradle 自动编译，使用已经编译好的So库
+                jniLibs.srcDirs = ['src/main/jniLibs', 'libs']//指向要使用的库文件//的路径，前边的是自己项目的，后边的是第三方的so
+            }
+        }
+    }
+    android.applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('release.apk')) {
+                //这里修改apk文件名
+                def fileName = "WMain"+variant.getVersionName()+".apk"
+                output.outputFile = new File(outputFile.parent, fileName)
+            }
+            if (outputFile != null && outputFile.name.endsWith('debug.apk')) {
+                //这里修改apk文件名
+                def fileName = "WMain-debug"+variant.getVersionName()+".apk"
+                output.outputFile = new File(outputFile.parent, fileName)
+            }
+
+        }
+    }
+
+}
+configurations.all {
+
+// check for updates every build
+    resolutionStrategy.cacheChangingModulesFor  0,'seconds'
+
+}
+// window studio
+//tasks.withType(JavaCompile) {
+//    compileTask -> compileTask.dependsOn CopyToJniLibs
+//}
+//task ndkBuild(type: Exec, description: 'Compile JNI source via NDK') {
+//    Properties properties = new Properties()
+//    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+//    def ndkDir = properties.getProperty('ndk.dir')
+//    commandLine "$ndkDir/ndk-build.cmd", "NDK_PROJECT_PATH=$projectDir.absolutePath\\build", "APP_BUILD_SCRIPT=$projectDir.absolutePath\\src\\main\\jni\\Android.mk", "NDK_APPLICATION_MK=$projectDir.absolutePath\\src\\main\\jni\\Application.mk"
+//    //你自己的mk文件目录
+//}
+//task CopyToJniLibs(type: Copy, dependsOn: 'ndkBuild', description: 'copy the native libs to jniLibs') {
+//    from fileTree(dir: file(buildDir.absolutePath + '/libs'), include: '**/*.so')
+//    into file('src/main/jniLibs')
+//}
+
+//ubuntu compile jni zhongyang.hu add 20170224
+//tasks.withType(JavaCompile) {
+//    compileTask -> compileTask.dependsOn CopyToJniLibs
+//}
+//task ndkBuild(type: Exec, description: 'Compile JNI source via NDK') {
+//    Properties properties = new Properties()
+//    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+//    def ndkDir = properties.getProperty('ndk.dir')
+//    commandLine "$ndkDir/ndk-build", "NDK_PROJECT_PATH=$projectDir.absolutePath/build", "APP_BUILD_SCRIPT=$projectDir.absolutePath/src/main/jni/Android.mk", "NDK_APPLICATION_MK=$projectDir.absolutePath/src/main/jni/Application.mk"
+//    //你自己的mk文件目录
+//}
+//task CopyToJniLibs(type: Copy, dependsOn: 'ndkBuild', description: 'copy the native libs to jniLibs') {
+//    from fileTree(dir: file(buildDir.absolutePath + '/libs'), include: '**/*.so')
+//    into file('src/main/jniLibs')
+//}
+
+dependencies {
+//    compile fileTree(include: ['*.jar'], dir: 'libs')
+    provided files('libs/android.jar')
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    compile 'com.android.support:design:25.0.1'
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.belerweb:pinyin4j:2.5.0'
+    //其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.2.8
+//    compile 'com.tencent.bugly:crashreport:latest.release'
+//    compile 'com.tencent.bugly:nativecrashreport:latest.release'
+    repositories {
+        maven { url "http://192.168.10.168:8081/repository/maven-releases/" }
+    }
+    compile 'com.wwc2.corelib:corelib:1.0.28'
+    compile 'com.wwc2.common_interface:common_interface:1.0.33'
+    compile 'com.wwc2.radio_interface:radio_interface:1.0.19'
+    compile 'com.wwc2.bluetooth_interface:bluetooth_interface:1.0.23'
+    compile 'com.wwc2.avin_interface:avin_interface:1.0.15'
+    compile 'com.wwc2.aux_interface:aux_interface:1.0.5'
+    compile 'com.wwc2.camera_interface:camera_interface:1.0.7'
+    compile 'com.wwc2.poweroff_interface:poweroff_interface:1.0.3'
+    compile 'com.wwc2.accoff_interface:accoff_interface:1.0.1'
+    compile 'com.wwc2.standby_interface:standby_interface:1.0.1'
+    compile 'com.wwc2.audio_interface:audio_interface:1.0.27'
+    compile 'com.wwc2.media_interface:media_interface:1.0.55'
+    compile 'com.wwc2.video_interface:video_interface:1.0.20'
+    compile 'com.wwc2.launcher_interface:launcher_interface:1.0.5'
+    compile 'com.wwc2.phonelink_interface:phonelink_interface:1.0.3'
+    compile 'com.wwc2.navi_interface:navi_interface:1.0.5'
+    compile 'com.wwc2.mcuupdate_interface:mcuupdate_interface:1.0.4'
+    compile 'com.wwc2.systemupdate_interface:systemupdate_interface:1.0.3'
+    compile 'com.wwc2.mainui_interface:mainui_interface:1.0.14'
+    compile 'com.wwc2.settings_interface:settings_interface:1.0.91'
+    compile 'com.wwc2.systempermission_interface:systempermission_interface:1.0.22'
+    compile 'com.wwc2.voiceassistant_interface:voiceassistant_interface:1.0.45'
+    compile 'com.wwc2.weather_interface:WeatherInterface:1.0.5'
+//    compile files('libs/CanbusDefine.jar')
+    compile 'com.wwc2.canbus_interface:canbus_interface:1.0.130'
+    compile 'com.wwc2.dvr_interface:dvr_interface:1.0.6'
+    compile 'com.wwc2.tpms_interface:tpms_interface:1.0.6'
+    compile 'com.wwc2.tv_interface:tv_interface:1.0.3'
+    compile 'com.wwc2.irdvr_interface:irdvr_interface:1.0.2'
+
+    compile files('libs/ICanMcu.jar')
+}

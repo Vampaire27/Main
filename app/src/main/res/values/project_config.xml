@@ -1,0 +1,10 @@
+﻿<resources>
+
+    <string name="txz_sdk_init_app_id">0c504e1b4dcd9d5e38e88db4b48ca003</string>
+    <string name="txz_sdk_init_app_token">a1fc673005dcd0a2acade0975ae34169521d0930</string>
+    <string-array name="txz_sdk_init_wakeup_keywords">
+        <item>小沃你好</item>
+        <item>你好小沃</item>
+    </string-array>
+
+</resources>
